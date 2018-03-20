@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<title>Procryptix Ehtereum Services</title>
+<h1 style="text-align:center;">Procryptix Ethereum Services</h1><br>
+<style>
+  body {background-color: lightsteelblue;}
+  h1 {color: steelblue;}
+</style>
+<body>
+<table class="blueTable">
+<thead>
+<tr>
+<th style="color:lawngreen">ENS Names</th>
+<th>ERC20 Token Creation</th>
+<th>Smart Contracts</th>
+<th>Dapp Service(Decentralized Apps)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><br>There is a 5 day bidding process to acquire an<br>eth name. Procryptix will do the work for you<br>and transfer ownership of your name to an<br>ETH wallet of your choice for 0.1 ETH.<br><br>That includes the minimum bid of 0.01 ETH,<br>0.01 ETH for bid mask and gas for at least 4<br>transactions.<br><br><a href="https://registrar.ens.domains">Check your name first to see if it is available:</a></td><td>2-1</td><td>3-1</td><td>cell4_1</td></tr>
+<tr>
+<td><br>Enter Name:</td><td>cell2_2</td><td>cell3_2</td><td>cell4_2</td></tr>
+<tr>
+<td action="/ethnamelookup.js"><input type="text" name="ethname">.eth</td><td>cell2_3</td><td>cell3_3</td><td>cell4_3</td></tr>
+<tr>
+<td><input type="submit" value="Lookup Name"><br></td><td>cell2_4</td><td>cell3_4</td><td>cell4_4</td></tr>
+<tr>
+<td><br><textarea id="ethnamelookup" name="Lookup ENS Name" rows="1" coulumns="15"></textarea></td>
+</tr>
+<tr>
+<td><br><a href="https://ens.domains"><img src="http://ens.readthedocs.io/en/latest/_images/ens-logo.jpg" alt="ENS" style="width:80px;height:60px;"></a></td>
+</tr>
+<tr>
+<td><p>
+ENS is the Ethereum Name Service,<br>a distributed, open, and extensible naming<br>system based on the Ethereum blockchain.</p>
+<p>
+The primary goal of ENS is to resolve<br>human-readable names, like ‘myname.eth’,<br>into machine-readable identifiers, including<br>Ethereum addresses, Swarm and IPFS<br>content hashes, and other identifiers. A<br>secondary purpose is to provide metadata<br>about names, such as ABIs for contracts,<br>and whois information for users.</p><p>
+ENS has similar goals to DNS, the Internet’s<br>Domain Name Service, but has significantly<br>different architecture, due to the capabilities<br>and constraints provided by the Ethereum<br>blockchain. Like DNS, ENS operates on a<br>system of dot-separated hierarchial names<br>called domains, with the owner of a domain<br>having full control over the distribution of<br>subdomains.
+</p></td>
+</tr>
+</tbody>
+</table>
+
+<form >
+
+
+<br>
+
+</form>
