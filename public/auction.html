@@ -4,12 +4,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 </head>
 
-	<body>
+	<body ng-app="myApp" ng-controller="auctionCtrl">
 		<h2>
 			ENS Auction
 		</h2>
 		<div>
-			Submite Name for aution: <input type='text'>
+			Submit name for auction: <input type='text' ng-model='ensName'>
+			<button> Submit</button>
 		</div>
 	</body>
 </html>
+
+<script type="text/javascript">
+    
+    var app = angular.module('myApp', []);
+  app.controller('auctionCtrl', function($scope, $http) {
+  	var url = window.location.href.split('/').pop()
+  	if(url != 'auction'){
+  		$scope.ensName = url
+  	}else{
+  		$scope.ensName = ''
+  	}  
+  });
+</script>

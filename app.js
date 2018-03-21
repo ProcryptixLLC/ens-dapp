@@ -18,10 +18,12 @@ app.get('/', function(req, res){
 	 
 });
 
-app.get('/auction/:name', function(req, res){
-	var name = req.params.name
+app.get('/auction', function(req, res){
 	res.sendFile(path.join(__dirname + '/public/auction.html'));
-	 
+});
+
+app.get('/auction/:name', function(req, res){
+	res.sendFile(path.join(__dirname + '/public/auction.html'));
 });
 
 app.get('/getName/:name', function(req, res){
