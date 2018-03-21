@@ -24,7 +24,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
   
-  
+   
   
 </head>
 <body ng-app="myApp" ng-controller="ensCtrl">
@@ -267,6 +267,7 @@
                         <div class="buttons-wrap">
                             <div  class="btn btn-primary display-4 ld-ext-right" ng-click="buttonClick($event)"> Check Your Name <div class="ld ld-ring ld-spin"></div> </div>
                         </div>
+                        <a href="auction/{{ensName}}" ng-show="showEnsLink"> Go to auction</a>
                         <p id = "namestatus" class="ensNameResponse">{{ensNameStatus}}</p>
                         
                         
@@ -451,14 +452,15 @@
     var app = angular.module('myApp', []);
   app.controller('ensCtrl', function($scope, $http) {
       $scope.ensLoading = false;
+      $scope.showEnsLink = false;
 
       $scope.buttonClick = function(e){
-        
         $scope.ensNameStatus = '';
         if($scope.ensName.length < 7){
             $scope.ensNameStatus = "Name must be atleast 7 characters."
         }else{
             $scope.ensLoading = true;
+            $scope.showEnsLink = false;
             angular.element(e.target).addClass('running')
             $http({
               method: 'GET',
@@ -466,7 +468,13 @@
               url: "http://127.0.0.1:3000/getName/"+$scope.ensName,
               headers:{"Content-Type":"application/x-www-form-urlencodeed, charset=UTF-8","x-Requested-With":"XMLHttpRequest"}
             }).then(function successCallback(response){
-                $scope.ensNameStatus = response.data;
+                $scope.ensNameStatus = response.data.display;
+                if(response.data.status == 0 || response.data.status == 1){
+                    $scope.showEnsLink = true;
+                }else{
+                    $scope.showEnsLink = false;
+                }
+                
                 $scope.ensLoading = false;
                 angular.element(e.target).removeClass('running')
             })

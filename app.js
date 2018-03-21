@@ -18,6 +18,12 @@ app.get('/', function(req, res){
 	 
 });
 
+app.get('/auction/:name', function(req, res){
+	var name = req.params.name
+	res.sendFile(path.join(__dirname + '/public/auction.html'));
+	 
+});
+
 app.get('/getName/:name', function(req, res){
 	var name = req.params.name
 	if(typeof web3 !== 'undefined') {
@@ -34,17 +40,17 @@ app.get('/getName/:name', function(req, res){
 		    registrar.getEntry(name, function (err, result) {
 
 		    	if (result.status === 0) {
-			        output = "Name is available and the auction hasn’t started!";
+			        output = {'display':"Name is available and the auction hasn’t started!",'status':result.status};
 			    } else if (result.status === 1) {
-			        output = " Name is available and the auction has been started";
+			        output = {'display':" Name is available and the auction has been started",'status':result.status};
 			    } else if (result.status === 2) {
-			        output = "Name is taken and currently owned by someone";
+			        output = {'display':"Name is taken and currently owned by someone",'status':result.status};
 			    } else if (result.status === 3) {
-			        output = "Name is forbidden";
+			        output = {'display':"Name is forbidden",'status':result.status};
 			    } else if (result.status === 4) {
-			        output = "Name is currently in  the ‘reveal’ stage of the auction";
+			        output = {'display':"Name is currently in  the ‘reveal’ stage of the auction",'status':result.status};
 			    } else if (result.status === 5) {
-			        output = "Name is not yet available due to the ‘soft launch’ of names.";
+			        output = {'display':"Name is not yet available due to the ‘soft launch’ of names.",'status':result.status};
 			    } else {
 			        output = "unknown status";
 			    }
