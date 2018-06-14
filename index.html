@@ -1,0 +1,45 @@
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<<html>
+  <head>
+    <title>ENS Registrar</title>
+  </head>
+  <body bgcolor=white ng-app="myApp" ng-controller="ensCtrl">
+
+    <table border="0" cellpadding="10">
+      <tr>
+        
+        <td>
+          <h1>ENS Registrar Test</h1>
+        </td>
+      </tr>
+    </table>
+    <p>Must be atleast 7 characters</p>
+    <input id = 'ensname' type='text' ng-model="ensName"/><button id='submitname' ng-click="buttonClick()">Submit</button>
+
+  </body>
+</html>
+
+<script>
+  var app = angular.module('myApp', []);
+  app.controller('ensCtrl', function($scope, $http) {
+      $scope.buttonClick = function(){
+        
+
+        $http({
+          method: 'GET',
+          //data: $.param({"name":$scope.ensName}),
+          //url: "http://127.0.0.1:3000/getName/"+$scope.ensName, headers:{"Content-Type":"application/x-www-form-urlencodeed, charset=UTF-8","x-Requested-With":"XMLHttpRequest"}
+		  //url: "http://192.168.1.24:3000/getName/"+$scope.ensName, headers:{"Content-Type":"application/x-www-form-urlencodeed, charset=UTF-8","x-Requested-With":"XMLHttpRequest"}
+		  url: "http://procryptix.com:3000/getName/"+$scope.ensName, headers:{"Content-Type":"application/x-www-form-urlencodeed, charset=UTF-8","x-Requested-With":"XMLHttpRequest"}
+        }).then(function successCallback(response){
+            alert(JSON.stringify(response.data))
+        })
+      };
+      
+  });
+
+  </script>
